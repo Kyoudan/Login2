@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+*{
+  margin: 0;
+}
+body{
+  background: rgb(17, 16, 39);
+}
+
+
+.Info{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  column-gap: 30vh;
+
+}
+
+.area{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+
+
+  padding: 100px 80px;
+  background-color: rgb(20, 18, 66);
+  border-radius: 100px;
+  border: 1px solid rgb(71, 66, 150);
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+
+}
+
+.area h1{
+
+  font-size: 80px;
+  font-family: 'Oswald', sans-serif;
+  color: rgb(100, 149, 255);
+  box-shadow: -1px -3px -8px rgba(0, 0, 0, 0.5);
+}
+
+.area input{
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  color: rgb(152, 154, 155);
+  outline: none;
+}
+
+.area input::placeholder{
+  color: #fff;
+}
+
+.area button{
+
+  font-size: 40px;
+  font-family: 'Oswald', sans-serif;
+  color: rgb(100, 149, 255);
+  box-shadow: -1px -3px -8px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  background-color: rgb(17, 16, 39);
+  cursor: pointer;
+  border: 0;
+}
+
+.area button:hover{
+  transition: 0.3s;
+  transform: scale(1.1);
+
+}
+
+.area button:active{
+  background-color: rgb(20, 18, 66);
+}
+
+.gloria{
+  width: 700px;
+  animation: pao 3s ease-in-out infinite alternate;
+
+}
+
+@keyframes pao {
+  to{
+    transform: translateY(30px);
+  } from {
+    transform: translateY(0px);
+  }
+}
