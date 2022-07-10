@@ -24,7 +24,7 @@ body{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 2em;
+  gap: 1.5em;
 
 
   padding: 100px 80px;
@@ -89,4 +89,12 @@ body{
   } from {
     transform: translateY(0px);
   }
+}
+
+.form-error{
+  font-family: 'Oswald', sans-serif;
+  color: rgb(50, 78, 139);
+  gap: 0em;
+  font-weight: 500;
+  position: relative;
 }

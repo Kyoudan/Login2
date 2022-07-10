@@ -2,7 +2,26 @@ import React from "react";
 import '../../App.css';
 import Logo from '../../img/desgraca.svg';
 
+import {Formik, Form, Field, ErrorMessage} from "formik";
+import * as yup from "yup";
+
 import { useNavigate } from "react-router-dom";
+
+
+const handleClickLogin = (values) => console.log(values);
+
+const validationLogin = yup.object().shape({
+    email: yup
+        .string()
+        .email("↪ Coloque um email valido!")
+        .required("↪ E-mail obrigatorio"),
+
+    password: yup
+        .string()
+        .min(8, "↪ A Senha deve ter 8 caracteres").
+        required("↪ Senha obrigatoria!"),
+});
+
 
 const Page = () => { 
 
@@ -10,37 +29,63 @@ const Page = () => {
     function MudarPagina() {
         navigate("/register");
     }
-    
+
+
     return (
-        <div className="App">
+        <Formik initialValues={{}}
+        onSubmit={handleClickLogin}
+        validationSchema={validationLogin}>
+            <Form className="login-form">
+                <div className="App">
 
-            <div className="Info">
-            <img src={Logo} className="gloria"/>
+                    <div className="Info login-form-group">
+                    <img src={Logo} className="gloria"/>
 
-                <div className="area">
+                        <div className="area">
 
-                    <h1>
-                    LOGIN
-                    </h1>
+                            <h1>
+                            LOGIN
+                            </h1>
 
-                    <input 
-                    type="text"
-                    placeholder="Usuario"></input>
+                            <Field 
+                            name="text"
+                            placeholder="Usuario"
+                            className="form-field"></Field>
 
-                    <input 
-                    type="email"
-                    placeholder="E-mail"></input>
+                            <Field 
+                            name="email"
+                            placeholder="E-mail"
+                            className="form-field"></Field>
 
-                    <input type="password"
-                    placeholder="Senha"></input>
+                            <ErrorMessage
+                            component="span"
+                            name="email"
+                            className="form-error"/>
 
-                    
-                    <button>ACESSAR</button>
-                    
-                    <button onClick={MudarPagina}>Registre-se</button>
+                            <Field 
+                            name="password"
+                            placeholder="Senha"
+                            className="form-field"></Field>
+
+                            <ErrorMessage
+                            component="span"
+                            name="password"
+                            className="form-error"/>
+
+
+                            
+                            <button className="button" type="submit">ACESSAR</button>
+                            
+                            <button onClick={MudarPagina}>Registre-se</button>
+                            
+
+
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </Form>
+        </Formik>
     );
 }
 
